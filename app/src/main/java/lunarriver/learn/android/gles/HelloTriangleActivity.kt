@@ -8,56 +8,71 @@ import android.opengl.GLES20.GL_COMPILE_STATUS
 import android.opengl.GLES20.GL_FLOAT
 import android.opengl.GLES20.GL_FRAGMENT_SHADER
 import android.opengl.GLES20.GL_LINK_STATUS
+import android.opengl.GLES20.GL_STATIC_DRAW
 import android.opengl.GLES20.GL_TRIANGLES
 import android.opengl.GLES20.GL_VERTEX_SHADER
-import android.opengl.GLES20.glGenBuffers
 import android.opengl.GLES20.glLinkProgram
 import android.opengl.GLSurfaceView
 import android.os.Bundle
 import android.util.Log
+import android.widget.Toast
 import androidx.activity.ComponentActivity
-import java.nio.ByteBuffer
-import java.nio.ByteOrder
 import java.nio.FloatBuffer
 import java.nio.IntBuffer
 import javax.microedition.khronos.egl.EGLConfig
 import javax.microedition.khronos.opengles.GL10
 
-class HelloTriangleActivity: ComponentActivity() {
+class HelloTriangleActivity : ComponentActivity() {
+    companion object {
+        const val VERTEX_SHADER_SOURCE = """
+            attribute vec4 aPos;
+            void main() {
+                gl_Position = aPos;
+            }
+        """
+
+        const val FRAGMENT_SHADER_SOURCE = """
+            precision mediump float;
+            void main() {
+                gl_FragColor = vec4(1.0, 0.5, 0.2, 1.0);
+            }
+        """
+
+        // 三角形顶点
+        val VERTICES = floatArrayOf(
+            -0.5f, -0.5f, 0f,
+            0.5f, -0.5f, 0f,
+            0f, 0.5f, 0f
+        )
+
+        // 顶点使用的float数目
+        const val FLOATS_OF_VERTEX = 3
+
+        // float占据的字节数
+        const val BYTES_OF_FLOAT = 4
+    }
 
     private lateinit var glSurfaceView: GLSurfaceView
-
-    private val vertexShaderSource = """
-        attribute vec4 vPosition;
-        void main() {
-            gl_Position = vPosition;
-        }
-    """.trimIndent()
-
-    private val fragmentShaderSource = """
-        precision mediump float;
-        void main() {
-            gl_FragColor = vec4(1.0, 0.5, 0.2, 1.0);
-        }
-    """.trimIndent()
-
-    private var program: Int = -1
-
-    private lateinit var vertexBuffer: FloatBuffer
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_hello_triangle)
 
-        Log.d("HelloTriangleActivity", "supportGLES20: ${supportGLES20()}")
+        if (!supportGLES20()) {
+            Toast.makeText(this, "不支持GLES20", Toast.LENGTH_SHORT).show()
+            finish()
+            return
+        }
 
         glSurfaceView = findViewById(R.id.glSurfaceView)
         glSurfaceView.setEGLContextClientVersion(2)
 
-        glSurfaceView.setRenderer(object: GLSurfaceView.Renderer {
+        glSurfaceView.setRenderer(object : GLSurfaceView.Renderer {
+            private var program: Int = -1
+
             override fun onSurfaceCreated(gl: GL10?, config: EGLConfig?) {
-                initVertexBuffer()
                 program = initShaderProgram()
+                initVertexBuffer()
             }
 
             override fun onSurfaceChanged(gl: GL10?, width: Int, height: Int) {
@@ -69,51 +84,44 @@ class HelloTriangleActivity: ComponentActivity() {
                 GLES20.glClear(GL_COLOR_BUFFER_BIT)
 
                 GLES20.glUseProgram(program)
-                val vPosition = GLES20.glGetAttribLocation(program, "vPosition")
-                GLES20.glEnableVertexAttribArray(vPosition)
-                GLES20.glVertexAttribPointer(vPosition, 3, GL_FLOAT, false, 3 * 4, vertexBuffer)
 
-                GLES20.glDrawArrays(GL_TRIANGLES, 0, 3)
+                val aPosLocation = GLES20.glGetAttribLocation(program, "aPos")
+                GLES20.glEnableVertexAttribArray(aPosLocation)
+                GLES20.glVertexAttribPointer(
+                    aPosLocation, FLOATS_OF_VERTEX, GL_FLOAT, false,
+                    FLOATS_OF_VERTEX * BYTES_OF_FLOAT, 0
+                )
+
+                GLES20.glDrawArrays(GL_TRIANGLES, 0, VERTICES.size / FLOATS_OF_VERTEX)
             }
         })
     }
 
-    private fun initVertexBuffer() {
-        val vertices = arrayOf(
-            -0.5f, -0.5f, 0f,
-            0.5f, -0.5f, 0f,
-            0f, 0.5f, 0f
-        )
-        val verticesArray = FloatArray(vertices.size) {
-            vertices[it]
-        }
-
-        val buffer = ByteBuffer.allocateDirect(9 * 4)
-        buffer.order(ByteOrder.nativeOrder())
-        vertexBuffer = buffer.asFloatBuffer()
-        vertexBuffer.put(verticesArray)
-        vertexBuffer.position(0)
-    }
-
     private fun initShaderProgram(): Int {
         val vertexShader = GLES20.glCreateShader(GL_VERTEX_SHADER)
-        GLES20.glShaderSource(vertexShader, vertexShaderSource)
+        GLES20.glShaderSource(vertexShader, VERTEX_SHADER_SOURCE)
         GLES20.glCompileShader(vertexShader)
 
         val vertexShaderCompileStatus = IntBuffer.allocate(1)
         GLES20.glGetShaderiv(vertexShader, GL_COMPILE_STATUS, vertexShaderCompileStatus)
         if (vertexShaderCompileStatus.get(0) == 0) {
-            Log.d("initShaderProgram", "vertexShaderCompileLog: " + GLES20.glGetShaderInfoLog(vertexShader))
+            Log.d(
+                "initShaderProgram",
+                "vertexShaderCompileLog: " + GLES20.glGetShaderInfoLog(vertexShader)
+            )
         }
 
         val fragmentShader = GLES20.glCreateShader(GL_FRAGMENT_SHADER)
-        GLES20.glShaderSource(fragmentShader, fragmentShaderSource)
+        GLES20.glShaderSource(fragmentShader, FRAGMENT_SHADER_SOURCE)
         GLES20.glCompileShader(fragmentShader)
 
         val fragmentShaderCompileStatus = IntBuffer.allocate(1)
         GLES20.glGetShaderiv(fragmentShader, GL_COMPILE_STATUS, fragmentShaderCompileStatus)
         if (fragmentShaderCompileStatus.get(0) == 0) {
-            Log.d("initShaderProgram", "fragmentShaderCompileLog: " + GLES20.glGetShaderInfoLog(fragmentShader))
+            Log.d(
+                "initShaderProgram",
+                "fragmentShaderCompileLog: " + GLES20.glGetShaderInfoLog(fragmentShader)
+            )
         }
 
         val program = GLES20.glCreateProgram()
@@ -131,6 +139,21 @@ class HelloTriangleActivity: ComponentActivity() {
         GLES20.glDeleteShader(fragmentShader)
 
         return program
+    }
+
+    private fun initVertexBuffer() {
+        val vbo = IntBuffer.allocate(1)
+        GLES20.glGenBuffers(1, vbo)
+
+        GLES20.glBindBuffer(GL_ARRAY_BUFFER, vbo[0])
+
+        val vertexData = FloatBuffer.wrap(VERTICES)
+        GLES20.glBufferData(
+            GL_ARRAY_BUFFER,
+            VERTICES.size * BYTES_OF_FLOAT,
+            vertexData,
+            GL_STATIC_DRAW
+        )
     }
 
     override fun onResume() {
