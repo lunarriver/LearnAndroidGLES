@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
 import lunarriver.learn.android.gles.a_primer.a_hello_triangle.HelloTriangleActivity
+import lunarriver.learn.android.gles.a_primer.b_shader.ShadersInterpolationActivity
 
 class MainActivity : ComponentActivity() {
 
@@ -16,6 +17,10 @@ class MainActivity : ComponentActivity() {
             startActivity(Intent(this@MainActivity, HelloTriangleActivity::class.java))
         }
 
-        startActivity(Intent(this@MainActivity, HelloTriangleActivity::class.java))
+        findViewById<View>(R.id.shadersInterpolationTv).setOnClickListener {
+            startActivity(Intent(this@MainActivity, ShadersInterpolationActivity::class.java))
+        }
+
+        startActivity(Intent(this@MainActivity, ShadersInterpolationActivity::class.java))
     }
 }
