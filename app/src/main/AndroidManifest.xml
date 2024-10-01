@@ -21,7 +21,10 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".HelloTriangleActivity" />
+        <activity android:name=".a_primer.a_hello_triangle.HelloTriangleActivity" />
+        <activity android:name=".a_primer.a_hello_triangle.practices.TwoTrianglesActivity" />
+        <activity android:name=".a_primer.a_hello_triangle.practices.TwoVAOsActivity" />
+        <activity android:name=".a_primer.a_hello_triangle.practices.TwoProgramsActivity" />
     </application>
 
 </manifest>

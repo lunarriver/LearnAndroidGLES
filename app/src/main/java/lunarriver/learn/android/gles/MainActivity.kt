@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import androidx.activity.ComponentActivity
+import lunarriver.learn.android.gles.a_primer.a_hello_triangle.HelloTriangleActivity
 
 class MainActivity : ComponentActivity() {
 
