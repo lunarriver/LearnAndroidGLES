@@ -31,6 +31,13 @@
         <activity android:name=".a_primer.b_shader.practice.ReverseTriangleActivity"/>
         <activity android:name=".a_primer.b_shader.practice.OffsetTriangleActivity"/>
         <activity android:name=".a_primer.b_shader.practice.OutColorActivity"/>
+
+        <activity android:name=".a_primer.c_texture.TextureActivity"/>
+        <activity android:name=".a_primer.c_texture.TextureActivity2"/>
+        <activity android:name=".a_primer.c_texture.practice.OtherSideActivity"/>
+        <activity android:name=".a_primer.c_texture.practice.FourFaceActivity"/>
+        <activity android:name=".a_primer.c_texture.practice.PartTextureActivity"/>
+        <activity android:name=".a_primer.c_texture.practice.MixTextureActivity"/>
     </application>
 
 </manifest>

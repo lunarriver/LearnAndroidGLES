@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:background="@color/purple_500"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/awesomeFaceTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingVertical="8dp"
+        android:text="Awesome Face"
+        android:textColor="@color/purple_500" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Practice"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/otherSideTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingVertical="8dp"
+        android:text="Other Side"
+        android:textColor="@color/purple_500" />
+
+    <TextView
+        android:id="@+id/fourFaceTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingVertical="8dp"
+        android:text="Four Face"
+        android:textColor="@color/purple_500" />
+
+    <TextView
+        android:id="@+id/partTextureTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingVertical="8dp"
+        android:text="Part Texture"
+        android:textColor="@color/purple_500" />
+
+    <TextView
+        android:id="@+id/mixTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingVertical="8dp"
+        android:text="Mix Texture"
+        android:textColor="@color/purple_500" />
+
+</LinearLayout>
