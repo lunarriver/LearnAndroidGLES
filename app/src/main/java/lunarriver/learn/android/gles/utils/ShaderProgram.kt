@@ -2,6 +2,7 @@ package lunarriver.learn.android.gles.utils
 
 import android.content.Context
 import android.opengl.GLES20
+import android.opengl.Matrix
 import android.util.Log
 import java.nio.IntBuffer
 
@@ -69,5 +70,10 @@ class ShaderProgram(
     fun setFloat(uniformName: String, value: Float) {
         val location = GLES20.glGetUniformLocation(program, uniformName)
         GLES20.glUniform1f(location, value)
+    }
+
+    fun setMat4(uniformName: String, mat4: FloatArray) {
+        val location = GLES20.glGetUniformLocation(program, uniformName)
+        GLES20.glUniformMatrix4fv(location, 1, false, mat4, 0)
     }
 }

@@ -38,6 +38,10 @@
         <activity android:name=".a_primer.c_texture.practice.FourFaceActivity"/>
         <activity android:name=".a_primer.c_texture.practice.PartTextureActivity"/>
         <activity android:name=".a_primer.c_texture.practice.MixTextureActivity"/>
+
+        <activity android:name=".a_primer.d_transform.TransformActivity"/>
+        <activity android:name=".a_primer.d_transform.practice.RotateFirstActivity"/>
+        <activity android:name=".a_primer.d_transform.practice.TwoBoxesActivity"/>
     </application>
 
 </manifest>

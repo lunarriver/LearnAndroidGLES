@@ -7,6 +7,7 @@ import androidx.activity.ComponentActivity
 import lunarriver.learn.android.gles.a_primer.a_hello_triangle.HelloTriangleActivity
 import lunarriver.learn.android.gles.a_primer.b_shader.ShadersInterpolationActivity
 import lunarriver.learn.android.gles.a_primer.c_texture.TextureActivity
+import lunarriver.learn.android.gles.a_primer.d_transform.TransformActivity
 
 class MainActivity : ComponentActivity() {
 
@@ -26,6 +27,10 @@ class MainActivity : ComponentActivity() {
             startActivity(Intent(this@MainActivity, TextureActivity::class.java))
         }
 
-        startActivity(Intent(this@MainActivity, TextureActivity::class.java))
+        findViewById<View>(R.id.transformTv).setOnClickListener {
+            startActivity(Intent(this@MainActivity, TransformActivity::class.java))
+        }
+
+        startActivity(Intent(this@MainActivity, TransformActivity::class.java))
     }
 }

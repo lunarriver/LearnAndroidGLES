@@ -49,3 +49,12 @@ fun generateByteBuffersFromBitmap(bitmap: Bitmap, asRGBA: Boolean = false): Byte
     byteBuffer.rewind()
     return byteBuffer
 }
+
+fun generateMat4fv(): FloatArray {
+    return floatArrayOf(
+        1.0f, 0.0f, 0.0f, 0.0f,
+        0.0f, 1.0f, 0.0f, 0.0f,
+        0.0f, 0.0f, 1.0f, 0.0f,
+        0.0f, 0.0f, 0.0f, 1.0f
+    )
+}
