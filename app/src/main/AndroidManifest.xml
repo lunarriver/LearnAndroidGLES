@@ -42,6 +42,13 @@
         <activity android:name=".a_primer.d_transform.TransformActivity"/>
         <activity android:name=".a_primer.d_transform.practice.RotateFirstActivity"/>
         <activity android:name=".a_primer.d_transform.practice.TwoBoxesActivity"/>
+
+        <activity android:name=".a_primer.e_coordinate.CoordinateActivity"/>
+        <activity android:name=".a_primer.e_coordinate.ZBufferActivity"/>
+        <activity android:name=".a_primer.e_coordinate.MoreCubeActivity"/>
+        <activity android:name=".a_primer.e_coordinate.practice.FovAspectActivity"/>
+        <activity android:name=".a_primer.e_coordinate.practice.ViewMatrixActivity"/>
+        <activity android:name=".a_primer.e_coordinate.practice.RotateBoxesActivity"/>
     </application>
 
 </manifest>

@@ -3,10 +3,13 @@ package lunarriver.learn.android.gles.utils
 import android.content.Context
 import android.graphics.Bitmap
 import android.graphics.BitmapFactory
+import android.graphics.Point
+import android.view.WindowManager
 import java.io.IOException
 import java.io.InputStream
 import java.nio.ByteBuffer
 import java.nio.charset.StandardCharsets
+
 
 fun loadStringFromAsset(context: Context, source: String): String? {
     return try {
@@ -57,4 +60,16 @@ fun generateMat4fv(): FloatArray {
         0.0f, 0.0f, 1.0f, 0.0f,
         0.0f, 0.0f, 0.0f, 1.0f
     )
+}
+
+fun getScreenAspectRatio(context: Context): Float {
+    val wm = context.getSystemService(Context.WINDOW_SERVICE) as WindowManager
+    val size = Point()
+    wm.defaultDisplay?.getRealSize(size)
+
+    val width = size.x
+    val height = size.y
+
+    // 防止除数为0
+    return if (height == 0) 1f else width.toFloat() / height.toFloat()
 }

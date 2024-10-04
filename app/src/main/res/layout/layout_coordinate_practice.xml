@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="160dp"
+    android:layout_height="wrap_content"
+    android:background="@color/purple_500"
+    android:orientation="vertical"
+    android:padding="8dp">
+
+    <TextView
+        android:id="@+id/zBufferTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingVertical="8dp"
+        android:text="Z Buffer"
+        android:textColor="@color/purple_500" />
+
+    <TextView
+        android:id="@+id/moreCubeTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingVertical="8dp"
+        android:text="More Cube"
+        android:textColor="@color/purple_500" />
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Practice"
+        android:textColor="@color/white"
+        android:textStyle="bold" />
+
+    <TextView
+        android:id="@+id/fovAspectTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingVertical="8dp"
+        android:text="Fov Aspect"
+        android:textColor="@color/purple_500" />
+
+    <TextView
+        android:id="@+id/viewMatrixTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingVertical="8dp"
+        android:text="View Matrix"
+        android:textColor="@color/purple_500" />
+
+    <TextView
+        android:id="@+id/rotateBoxesTv"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:background="@color/white"
+        android:gravity="center_horizontal"
+        android:paddingVertical="8dp"
+        android:text="Rotate Boxes"
+        android:textColor="@color/purple_500" />
+
+</LinearLayout>

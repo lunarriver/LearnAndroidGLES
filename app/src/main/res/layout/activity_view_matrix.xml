@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.opengl.GLSurfaceView
+        android:id="@+id/glSurfaceView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <SeekBar
+        android:id="@+id/xDiffSeekBar"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:layout_margin="12dp"
+        android:max="100"
+        android:min="0"
+        android:progress="50" />
+
+    <SeekBar
+        android:id="@+id/yDiffSeekBar"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="56dp"
+        android:layout_marginEnd="12dp"
+        android:max="100"
+        android:min="0"
+        android:progress="50" />
+
+    <SeekBar
+        android:id="@+id/zDiffSeekBar"
+        android:layout_width="160dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="12dp"
+        android:max="100"
+        android:min="0"
+        android:progress="50" />
+
+</FrameLayout>

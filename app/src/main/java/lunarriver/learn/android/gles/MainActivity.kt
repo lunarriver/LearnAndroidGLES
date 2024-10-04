@@ -8,6 +8,7 @@ import lunarriver.learn.android.gles.a_primer.a_hello_triangle.HelloTriangleActi
 import lunarriver.learn.android.gles.a_primer.b_shader.ShadersInterpolationActivity
 import lunarriver.learn.android.gles.a_primer.c_texture.TextureActivity
 import lunarriver.learn.android.gles.a_primer.d_transform.TransformActivity
+import lunarriver.learn.android.gles.a_primer.e_coordinate.CoordinateActivity
 
 class MainActivity : ComponentActivity() {
 
@@ -31,6 +32,10 @@ class MainActivity : ComponentActivity() {
             startActivity(Intent(this@MainActivity, TransformActivity::class.java))
         }
 
-        startActivity(Intent(this@MainActivity, TransformActivity::class.java))
+        findViewById<View>(R.id.coordinateTv).setOnClickListener {
+            startActivity(Intent(this@MainActivity, CoordinateActivity::class.java))
+        }
+
+        startActivity(Intent(this@MainActivity, CoordinateActivity::class.java))
     }
 }
