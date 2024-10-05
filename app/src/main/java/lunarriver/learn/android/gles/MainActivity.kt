@@ -9,6 +9,7 @@ import lunarriver.learn.android.gles.a_primer.b_shader.ShadersInterpolationActiv
 import lunarriver.learn.android.gles.a_primer.c_texture.TextureActivity
 import lunarriver.learn.android.gles.a_primer.d_transform.TransformActivity
 import lunarriver.learn.android.gles.a_primer.e_coordinate.CoordinateActivity
+import lunarriver.learn.android.gles.a_primer.f_camera.CameraActivity
 
 class MainActivity : ComponentActivity() {
 
@@ -36,6 +37,10 @@ class MainActivity : ComponentActivity() {
             startActivity(Intent(this@MainActivity, CoordinateActivity::class.java))
         }
 
-        startActivity(Intent(this@MainActivity, CoordinateActivity::class.java))
+        findViewById<View>(R.id.cameraTv).setOnClickListener {
+            startActivity(Intent(this@MainActivity, CameraActivity::class.java))
+        }
+
+        startActivity(Intent(this@MainActivity, CameraActivity::class.java))
     }
 }

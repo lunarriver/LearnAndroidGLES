@@ -49,6 +49,12 @@
         <activity android:name=".a_primer.e_coordinate.practice.FovAspectActivity"/>
         <activity android:name=".a_primer.e_coordinate.practice.ViewMatrixActivity"/>
         <activity android:name=".a_primer.e_coordinate.practice.RotateBoxesActivity"/>
+
+        <activity android:name=".a_primer.f_camera.CameraActivity"/>
+        <activity android:name=".a_primer.f_camera.CameraMoveActivity"/>
+        <activity android:name=".a_primer.f_camera.CameraControllerActivity"/>
+        <activity android:name=".a_primer.f_camera.CameraClassActivity"/>
+        <activity android:name=".a_primer.f_camera.practice.CameraFpsActivity"/>
     </application>
 
 </manifest>

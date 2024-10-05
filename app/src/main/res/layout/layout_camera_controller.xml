@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/wTv"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="72dp"
+        android:layout_gravity="end"
+        android:background="@color/purple_500"
+        android:text="W"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/dTv"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="8dp"
+        android:background="@color/purple_500"
+        android:text="D"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/sTv"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="72dp"
+        android:layout_gravity="end"
+        android:background="@color/purple_500"
+        android:text="S"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <TextView
+        android:id="@+id/aTv"
+        android:layout_width="56dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="72dp"
+        android:layout_marginEnd="136dp"
+        android:layout_gravity="end"
+        android:background="@color/purple_500"
+        android:text="A"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:gravity="center"/>
+
+    <SeekBar
+        android:id="@+id/fovSeekBar"
+        android:layout_width="180dp"
+        android:layout_height="40dp"
+        android:layout_gravity="end"
+        android:layout_marginTop="136dp"
+        android:layout_marginEnd="12dp"
+        android:max="75"
+        android:min="15"
+        android:progress="45" />
+
+</FrameLayout>

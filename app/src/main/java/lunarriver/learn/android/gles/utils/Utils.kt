@@ -9,7 +9,7 @@ import java.io.IOException
 import java.io.InputStream
 import java.nio.ByteBuffer
 import java.nio.charset.StandardCharsets
-
+import kotlin.math.sqrt
 
 fun loadStringFromAsset(context: Context, source: String): String? {
     return try {
@@ -72,4 +72,37 @@ fun getScreenAspectRatio(context: Context): Float {
 
     // 防止除数为0
     return if (height == 0) 1f else width.toFloat() / height.toFloat()
+}
+
+fun vec3cross(v1: FloatArray, v2: FloatArray): FloatArray {
+    return floatArrayOf(
+        v1[1]*v2[2] - v1[2]*v2[1],
+        v1[2]*v2[0] - v1[0]*v2[2],
+        v1[0]*v2[1] - v1[1]*v2[0]
+    )
+}
+
+fun vec3normalize(v: FloatArray): FloatArray {
+    val length = sqrt(v[0]*v[0] + v[1]*v[1] + v[2]*v[2])
+    return floatArrayOf(
+        v[0] / length,
+        v[1] / length,
+        v[2] / length
+    )
+}
+
+fun vec3MultiplyNum(v: FloatArray, num: Float): FloatArray {
+    return floatArrayOf(
+        v[0] * num,
+        v[1] * num,
+        v[2] * num
+    )
+}
+
+fun vec3Plus(v1: FloatArray, v2: FloatArray): FloatArray {
+    return floatArrayOf(
+        v1[0] + v2[0],
+        v1[1] + v2[1],
+        v1[2] + v2[2]
+    )
 }
